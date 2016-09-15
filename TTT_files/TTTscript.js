@@ -345,7 +345,7 @@ function C_33(player) {
 /*This function shows the available moves for a player*/
 function amove(position) {
     switch (position) {
-        case 0:
+        case 0: 
             init();
 
 
