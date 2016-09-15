@@ -1,0 +1,77 @@
+body {
+    color: black;
+    width: 26.8cm;
+    overflow: scroll;
+    background-color: white;
+}
+
+.welcome{
+  padding:20px;
+  text-align: center;
+  background: #ccc;
+}
+.transit{
+  transition: 5s;
+}
+#player{
+  color: green;
+}
+#gamelet { /*This style is for the boxes containing the hexadecimal color codes*/
+    width: 5.6cm;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.gamelet2 {
+    margin-top: 4.3cm;
+}
+
+.fr { /*This style is for the red box only*/
+    margin-left: 3cm;
+}
+
+.sr { /*This style is for the green box only*/
+    margin-left: 1cm;
+}
+
+.tr { /*This style is for the blue box only*/
+    margin-left: 1cm;
+}
+
+.gamelet1 {
+    border-radius: 90px;
+    width: 0.6cm;
+    cursor: pointer;
+}
+
+.board {
+    background-image: url("Untitled.png");
+    background-repeat: no-repeat;
+}
+
+/*//styles from bootstrap*/
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  text-align: center;
+  padding:20px;
+  display: none;
+}
+
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  text-align: center;
+  padding:20px;
+  display: none;
+}
+
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  text-align: center;
+  padding:20px;
+}

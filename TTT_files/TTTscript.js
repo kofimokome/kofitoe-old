@@ -1,0 +1,2238 @@
+var wins = 0, cplayer = 1, smove = 0, i, cell1 = 10, cell2 = 10, cmove,winner=0;
+/*Variable explanation:
+ cplayer stores the number of the current player
+ smove determines the maximum number of moves allowed*/
+
+ var info_msg,alert_msg,event_msg;
+/*This function initialises the array used to store player moves*/
+var A = new Array(9);
+function init() {
+    for (i = 0; i < 9; i++) {
+        if (A[i] != 1 && A[i] != 2) {
+            A[i] = "e";
+        }
+    }
+}
+
+init();
+
+
+/* HERE ARE THE FUNCTIONS FOR EACH PLAYER
+
+ // C12 means row 1 column 2
+
+ */
+function C_11(player) {
+    /*This code is for the first player*/
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[0] == 'e') {
+                A[0] = 1;
+                cplayer = 2;
+                smove++;
+                document.game.C11.style = "background:red;";
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    /*Code for the second player*/
+    else {
+        if (smove < 6) {
+            if (A[0] == 'e') {
+                cplayer = 1;
+                smove++;
+                document.game.C11.style = "background:blue";
+                A[0] = 2;
+            }
+            else {
+              alert_msg='not allowed';
+              alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_12(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[1] == 'e') {
+                smove++;
+                document.game.C12.style = "background:red;";
+                A[1] = 1;
+                cplayer = 2;
+            }
+            else {
+              alert_msg='not allowed';
+              alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[1] == 'e') {
+                smove++;
+                document.game.C12.style = "background:blue";
+                A[1] = 2;
+                cplayer = 1;
+            }
+            else {
+              alert_msg='not allowed';
+              alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_13(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[2] == 'e') {
+                smove++;
+                document.game.C13.style = "background:red;";
+                A[2] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[2] == 'e') {
+                smove++;
+                document.game.C13.style = "background:blue";
+                A[2] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_21(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[3] == 'e') {
+                smove++;
+                document.game.C21.style = "background:red;";
+                A[3] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[3] == 'e') {
+                smove++;
+                document.game.C21.style = "background:blue";
+                A[3] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_22(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[4] == 'e') {
+                smove++;
+                document.game.C22.style = "background:red;";
+                A[4] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[4] == 'e') {
+                smove++;
+                document.game.C22.style = "background:blue";
+                A[4] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_23(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[5] == 'e') {
+                smove++;
+                document.game.C23.style = "background:red;";
+                A[5] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[5] == 'e') {
+                smove++;
+                document.game.C23.style = "background:blue";
+                A[5] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_31(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[6] == 'e') {
+                smove++;
+                document.game.C31.style = "background:red;";
+                A[6] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[6] == 'e') {
+                smove++;
+                document.game.C31.style = "background:blue";
+                A[6] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_32(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[7] == 'e') {
+                smove++;
+                document.game.C32.style = "background:red;";
+                A[7] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[7] == 'e') {
+                smove++;
+                document.game.C32.style = "background:blue";
+                A[7] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+function C_33(player) {
+    if (player == 1) {
+        if (smove < 6) {
+            if (A[8] == 'e') {
+                smove++;
+                document.game.C33.style = "background:red;";
+                A[8] = 1;
+                cplayer = 2;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove = 7;
+    }
+    else {
+        if (smove < 6) {
+            if (A[8] == 'e') {
+                smove++;
+                document.game.C33.style = "background:blue";
+                A[8] = 2;
+                cplayer = 1;
+            }
+            else {
+                alert_msg='not allowed';
+                alerts.style.display='block';
+            }
+        }
+        else
+            smove == 7;
+    }
+}
+
+/*FUNCTIONS END HERE*/
+
+
+/*This function shows the available moves for a player*/
+function amove(position) {
+    switch (position) {
+        case 0:
+            init();
+
+
+            if (A[1] == "e") {
+                document.game.C12.style = "background:pink;";
+                A[1] = 'a';
+                if (A[2] == "e") {
+                    document.game.C13.style = "background:pink;";
+                    A[2] = 'a';
+                }
+            }
+            if (A[3] == "e") {
+                document.game.C21.style = "background:pink;";
+                A[3] = 'a';
+                if (A[6] == "e") {
+                    document.game.C31.style = "background:pink;";
+                    A[6] = 'a';
+                }
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[8] == "e") {
+                    document.game.C33.style = "background:pink;";
+                    A[8] = 'a';
+                }
+            }
+
+
+            if (A[5] == "e") {
+                document.game.C23.style = "background:none;";
+            }
+            if (A[7] == "e") {
+                document.game.C32.style = "background:none;";
+            }
+            break;
+
+        case 1:
+            init();
+            if (A[7] == "e") {
+                document.game.C32.style = "background:none;";
+            }
+
+            if (A[0] == "e") {
+                document.game.C11.style = "background:pink;";
+                A[0] = 'a';
+            }
+            if (A[2] == "e") {
+                document.game.C13.style = "background:pink;";
+                A[2] = 'a';
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[7] == "e") {
+                    document.game.C32.style = "background:pink;";
+                    A[7] = 'a';
+                }
+            }
+
+
+            if (A[3] == "e") {
+                document.game.C21.style = "background:none;";
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:none;";
+            }
+            if (A[5] == "e") {
+                document.game.C23.style = "background:none;";
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:none;";
+            }
+            break;
+
+        case 2:
+            init();
+
+            if (A[0] == "e") {
+                document.game.C11.style = "background:none;";
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:none;";
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:none;";
+            }
+
+            if (A[1] == "e") {
+                document.game.C12.style = "background:pink;";
+                A[1] = 'a';
+                if (A[0] == "e") {
+                    document.game.C11.style = "background:pink;";
+                    A[0] = 'a';
+                }
+            }
+            if (A[5] == "e") {
+                document.game.C23.style = "background:pink;";
+                A[5] = 'a';
+                if (A[8] == "e") {
+                    document.game.C33.style = "background:pink;";
+                    A[8] = 'a';
+                }
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[6] == "e") {
+                    document.game.C31.style = "background:pink;";
+                    A[6] = 'a';
+                }
+            }
+
+
+            if (A[3] == "e") {
+                document.game.C21.style = "background:none;";
+            }
+            if (A[7] == "e") {
+                document.game.C32.style = "background:none;";
+            }
+            break;
+
+        case 3:
+            init();
+            if (A[5] == "e") {
+                document.game.C23.style = "background:none;";
+            }
+
+            if (A[0] == "e") {
+                document.game.C11.style = "background:pink;";
+                A[0] = 'a';
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:pink;";
+                A[6] = 'a';
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[5] == "e") {
+                    document.game.C23.style = "background:pink;";
+                    A[5] = 'a';
+                }
+            }
+
+            if (A[1] == "e") {
+                document.game.C12.style = "background:none;";
+            }
+            if (A[2] == "e") {
+                document.game.C13.style = "background:none;";
+            }
+            if (A[7] == "e") {
+                document.game.C32.style = "background:none;";
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:none;";
+            }
+            break;
+
+        case 4:
+            init();
+            if (A[1] == "e") {
+                document.game.C12.style = "background:pink;";
+                A[1] = 'a';
+            }
+            if (A[7] == "e") {
+                document.game.C32.style = "background:pink;";
+                A[7] = 'a';
+            }
+            if (A[3] == "e") {
+                document.game.C21.style = "background:pink;";
+                A[3] = 'a';
+            }
+            if (A[5] == "e") {
+                document.game.C23.style = "background:pink;";
+                A[5] = 'a';
+            }
+
+            if (A[0] == "e") {
+                document.game.C11.style = "background:pink;";
+                A[0] = 'a';
+            }
+            if (A[2] == "e") {
+                document.game.C13.style = "background:pink;";
+                A[2] = 'a';
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:pink;";
+                A[6] = 'a';
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:pink;";
+                A[8] = 'a';
+            }
+            break;
+
+        case 5:
+            init();
+
+            if (A[3] == "e") {
+                document.game.C21.style = "background:none;";
+            }
+
+            if (A[2] == "e") {
+                document.game.C13.style = "background:pink;";
+                A[2] = 'a';
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:pink;";
+                A[8] = 'a';
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[3] == "e") {
+                    document.game.C21.style = "background:pink;";
+                    A[3] = 'a';
+                }
+            }
+
+            if (A[1] == "e") {
+                document.game.C12.style = "background:none;";
+            }
+            if (A[0] == "e") {
+                document.game.C11.style = "background:none;";
+            }
+            if (A[7] == "e") {
+                document.game.C32.style = "background:none;";
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:none;";
+            }
+            break;
+
+        case 6:
+            init();
+
+            if (A[7] == "e") {
+                document.game.C32.style = "background:pink;";
+                A[7] = 'a';
+                if (A[8] == "e") {
+                    document.game.C33.style = "background:pink;";
+                    A[8] = 'a';
+                }
+            }
+            if (A[3] == "e") {
+                document.game.C21.style = "background:pink;";
+                A[3] = 'a';
+                if (A[0] == "e") {
+                    document.game.C11.style = "background:pink;";
+                    A[0] = 'a';
+                }
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[2] == "e") {
+                    document.game.C13.style = "background:pink;";
+                    A[2] = 'a';
+                }
+            }
+
+
+            if (A[5] == "e") {
+                document.game.C23.style = "background:none;";
+            }
+            if (A[1] == "e") {
+                document.game.C12.style = "background:none;";
+            }
+            break;
+
+        case 7:
+            init();
+
+            if (A[1] == "e") {
+                document.game.C12.style = "background:none;";
+            }
+
+            if (A[6] == "e") {
+                document.game.C31.style = "background:pink;";
+                A[6] = 'a';
+            }
+            if (A[8] == "e") {
+                document.game.C33.style = "background:pink;";
+                A[8] = 'a';
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[1] == "e") {
+                    document.game.C12.style = "background:pink;";
+                    A[1] = 'a';
+                }
+            }
+
+
+            if (A[3] == "e") {
+                document.game.C21.style = "background:none;";
+            }
+            if (A[0] == "e") {
+                document.game.C11.style = "background:none;";
+            }
+            if (A[5] == "e") {
+                document.game.C23.style = "background:none;";
+            }
+            if (A[2] == "e") {
+                document.game.C13.style = "background:none;";
+            }
+            break;
+
+        case 8:
+            init();
+            if (A[6] == "e") {
+                document.game.C31.style = "background:none;";
+            }
+            if (A[2] == "e") {
+                document.game.C13.style = "background:none;";
+            }
+            if (A[6] == "e") {
+                document.game.C31.style = "background:none;";
+            }
+
+            if (A[7] == "e") {
+                document.game.C32.style = "background:pink;";
+                A[7] = 'a';
+                if (A[6] == "e") {
+                    document.game.C31.style = "background:pink;";
+                    A[6] = 'a';
+                }
+            }
+            if (A[5] == "e") {
+                document.game.C23.style = "background:pink;";
+                A[5] = 'a';
+                if (A[2] == "e") {
+                    document.game.C13.style = "background:pink;";
+                    A[2] = 'a';
+                }
+            }
+            if (A[4] == "e") {
+                document.game.C22.style = "background:pink;";
+                A[4] = 'a';
+                if (A[0] == "e") {
+                    document.game.C11.style = "background:pink;";
+                    A[0] = 'a';
+                }
+            }
+
+
+            if (A[3] == "e") {
+                document.game.C21.style = "background:none;";
+            }
+            if (A[1] == "e") {
+                document.game.C12.style = "background:none;";
+            }
+            break;
+    }
+}
+
+/* FUNCTION amove() ENDS HERE*/
+
+/*Yhis functions resets the color of the board after calling amove()*/
+function reset() {
+    init();
+    if (A[0] == "e") {
+        document.game.C11.style = "background:white;";
+    }
+    if (A[1] == "e") {
+        document.game.C12.style = "background:white;";
+    }
+    if (A[2] == "e") {
+        document.game.C13.style = "background:white;";
+    }
+    if (A[3] == "e") {
+        document.game.C21.style = "background:white;";
+    }
+    if (A[4] == "e") {
+        document.game.C22.style = "background:white;";
+    }
+    if (A[5] == "e") {
+        document.game.C23.style = "background:white;";
+    }
+    if (A[6] == "e") {
+        document.game.C31.style = "background:white;";
+    }
+    if (A[7] == "e") {
+        document.game.C32.style = "background:white;";
+    }
+    if (A[8] == "e") {
+        document.game.C33.style = "background:white;";
+    }
+}
+
+/* FUNCTION reset() ENDS HERE*/
+
+/*This function moves a seed to another location*/
+
+function move(from, to) {
+    //for C11
+    if (from == 0) {
+        amove(0);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C11.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+
+    // For cell C12
+    if (from == 1) {
+        amove(1);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[2] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[2] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[3] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[3] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[4] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[4] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[5] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[5] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[6] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[6] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[7] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[7] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C12.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[8] = 1;
+                    A[1] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[8] = 2;
+                    A[1] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+    //for C13
+    if (from == 2) {
+        amove(2);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[1] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[1] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[0] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[0] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[3] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[3] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[4] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[4] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[5] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[5] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[6] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[6] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[7] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[7] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C13.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[8] = 1;
+                    A[2] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[8] = 2;
+                    A[2] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+    //for C21
+    if (from == 3) {
+        amove(3);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        else {
+            if (A[0] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[1] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[1] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[2] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[2] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[4] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[4] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[5] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[5] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[6] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[6] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[7] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[7] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C21.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[8] = 1;
+                    A[3] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[8] = 2;
+                    A[3] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+
+    }
+
+    // for C22
+    if (from == 4) {
+        amove(4);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = 1;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = 2;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = 1;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = 2;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = 1;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = 2;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = 1;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = 2;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C22.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+    //for C23
+    if (from == 5) {
+        amove(5);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C23.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+    //for C31
+    if (from == 6) {
+        amove(6);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C31.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+
+    //for C32
+    if (from == 7) {
+        amove(7);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 8) {
+            if (A[8] == 'a') {
+                document.game.C32.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C33.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C33.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+    //for C33
+    if (from == 8) {
+        amove(8);
+        if (to == from) {
+            info_msg='Move Cancelled';
+infos.style.display='block';
+        }
+
+        if (to == 1) {
+            if (A[1] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C12.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C12.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 2) {
+            if (A[2] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C13.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C13.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 3) {
+            if (A[3] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C21.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C21.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 4) {
+            if (A[4] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C22.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C22.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 5) {
+            if (A[5] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C23.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C23.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 6) {
+            if (A[6] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C31.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C31.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 7) {
+            if (A[7] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C32.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C32.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+
+        if (to == 0) {
+            if (A[0] == 'a') {
+                document.game.C33.style = "background:white;";
+                if (cplayer == 1) {
+                    document.game.C11.style = "background:red;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 2;
+                }
+                else {
+                    document.game.C11.style = "background:blue;";
+                    A[to] = cplayer;
+                    A[from] = 'e';
+                    cplayer = 1;
+                }
+            }
+        }
+    }
+    reset();
+    cell1 = 10;
+    cell2 = 10;
+
+}
+
+/* function move() ends here*/
+
+/*this function sets the new location of a seed on the board */
+function autoname(cell) {
+    if (wins == 0) {
+        if (smove == 7) {
+            if (cell1 == 10) {
+                if (cplayer == 1 && A[cell] == 1) {
+                    cell1 = cell;
+                    amove(cell1);
+                    info_msg='cells in pink indicate available moves';
+                    infos.style.display='block';
+                }
+                if (cplayer == 2 && A[cell] == 2) {
+                    cell1 = cell;
+                    amove(cell1);
+                    info_msg='cells in pink indicate available moves';
+                    infos.style.display='block';
+                }
+                if ((cplayer == 1 && A[cell] == 2) || ( cplayer == 2 && A[cell] == 1)) {
+                  alerts.style.display='block';
+                    alert_msg='!! Not Allowed !!';
+                }
+
+            }
+            else {
+                cell2 = cell;
+                main();
+            }
+        }
+    }
+}
+
+/*function autoname() ends here*/
+
+/*This function calls the move() function if*/
+function main() {
+    if (smove == 7 && cell2 != 10) {
+        move(cell1, cell2);
+    }
+}
+/*function main() ends here*/
+
+
+/*This function checks if a player has won*/
+function win(n) {
+    if (A[0] == n && A[1] == n && A[2] == n) {
+        wins = 1;
+    }
+    if (A[0] == n && A[3] == n && A[6] == n) {
+        wins = 1;
+    }
+    if (A[0] == n && A[4] == n && A[8] == n) {
+        wins = 1;
+    }
+    if (A[1] == n && A[4] == n && A[7] == n) {
+        wins = 1;
+    }
+    if (A[2] == n && A[5] == n && A[8] == n) {
+        wins = 1;
+    }
+    if (A[3] == n && A[4] == n && A[5] == n) {
+        wins = 1;
+    }
+    if (A[6] == n && A[7] == n && A[8] == n) {
+        wins = 1;
+    }
+    if (A[2] == n && A[4] == n && A[6] == n) {
+        wins = 1;
+    }
+    if (wins == 1) {
+        gameover();
+         document.cookie="id=" + n +";expires=24*60*60";
+        event_msg = 'Player ' + n + '  Wins';
+        events.style.display='block';
+        smove = 7;
+        document.getElementById('score').innerHTML="<?php echo 'hey';?>"; //not working
+    }
+
+}
+/*function win ends here*/
+
+/*This function prevents game play after a player wins*/
+function gameover() {
+    for (i = 0; i < 9; i++) {
+        if (A[i] != 1 && A[i] != 2) {
+            A[i] = "o";
+        }
+    }
+}
+
+/*Checks if there is a winner*/
+function check() {
+    if (wins == 0) {
+        if (cplayer == 2)
+            win(1);
+        else {
+            win(2);
+        }
+    }
+}
+
+/*function to start the game*/
+function start(){
+  document.getElementById('registration').style.display='none';
+  document.getElementById('game_area').style.display='block';
+
+}
