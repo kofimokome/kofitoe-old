@@ -14,6 +14,27 @@ require_once('includes/header.php');
     </script>
     <script type="text/javascript">
     info_msg='Click on a cell to start playing';
+
+
+    var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("MSXML2.XMLHTTP.3.0");
+    function sendRequest() {
+        var output=document.getElementById('score');
+        if(xhr){
+          document.getElementById('score').innerHTML="ok we are waiting for some text";
+            xhr.open("GET","score.php",true);
+            xhr.send(null);
+            xhr.onreadystatechange=function () {handleResponse(xhr)}
+
+            }
+
+        }
+
+    function handleResponse(xhr) {
+        if(xhr.readyState==4 && xhr.status==200){
+            document.getElementById('score').innerHTML="<h3>High Scores</h3>"+xhr.responseText;
+        }
+
+    }
     </script>
 
 
@@ -22,11 +43,14 @@ require_once('includes/header.php');
   <div class="welcome">
     Welcome to Tic Tac Toe. <span id="player"></span>
   </div>
+  <div class="welcome">
+    Player one: <span id="stats"></span> : Player two
+  </div>
   <?php
   if($reg==0){
     echo '
   <div id="registration">
-    Please enter your names <br/>
+    Please enter your names. Leave player 2 blank if you want to play against Genious (The computer) <br/>
     <form class="" method="post" action="index.php" >
     Player 1: <input name ="p1" type="text"/>
     <br>
@@ -81,6 +105,7 @@ var alerts=document.getElementById('error');
       setInterval("alerts.style.display='none';infos.style.display='none';",4100);
       setInterval("if(wins==0){document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}",100);
       setInterval("if(wins==1){document.getElementById('player').innerHTML='';}",100);
+      setInterval("document.getElementById('stats').innerHTML=''+score1+'    '+score2;",100);
 
 </script>
 

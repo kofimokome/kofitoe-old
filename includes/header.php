@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo '<script> var com=0;</script>';
 $server='localhost';
 $user='root';
 $password='root';
@@ -17,32 +18,17 @@ if(!$db){
 $reg=0;
 if(isset($_POST['p1']) || isset($_POST['p2'])){
   if($_POST['p1']=='')
-  $p1='Player 1';
+  $_SESSION['p1']='Player 1';
   else {
-    $p1=$_POST['p1'];
+    $_SESSION['p1']=$_POST['p1'];
   }
-  if($_POST['p2']=='')
-  $p2='Player 2';
+  if($_POST['p2']==''){
+    echo '<script> com=1;</script>';
+  $_SESSION['p2']='Genious';
+}
   else {
-    $p2=$_POST['p2'];
+    $_SESSION['p2']=$_POST['p2'];
   }
   $reg=1;
-}
-
-function setscore(){
-  $winner=$_COOKIE['id'];
-  // if($winner==1){
-  //   $query="insert into high_score values(null,{$p1},4)";
-  // }
-  // else {
-  //   $query="insert into high_score values(null,{$p2},4)";
-  // }
-  //
-  // $result=mysqli_query($con,$query);
-  // if(!$result){
-  // echo 'query failed';
-  // die();}
-  echo 'name has been addes';
-
 }
 ?>

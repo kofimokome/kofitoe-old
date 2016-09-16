@@ -1,4 +1,4 @@
-var wins = 0, cplayer = 1, smove = 0, i, cell1 = 10, cell2 = 10, cmove,winner=0;
+var wins = 0, cplayer = 1, smove = 0, i, cell1 = 10, cell2 = 10, cmove,winner=0,score1=3,score2=3;
 /*Variable explanation:
  cplayer stores the number of the current player
  smove determines the maximum number of moves allowed*/
@@ -22,330 +22,385 @@ init();
  // C12 means row 1 column 2
 
  */
-function C_11(player) {
-    /*This code is for the first player*/
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[0] == 'e') {
-                A[0] = 1;
-                cplayer = 2;
-                smove++;
-                document.game.C11.style = "background:red;";
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    /*Code for the second player*/
-    else {
-        if (smove < 6) {
-            if (A[0] == 'e') {
-                cplayer = 1;
-                smove++;
-                document.game.C11.style = "background:blue";
-                A[0] = 2;
-            }
-            else {
-              alert_msg='not allowed';
-              alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+ function C_11(player) {
+     /*This code is for the first player*/
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[0] == 'e') {
+                 A[0] = 1;
+                 cplayer = 2;
+                 smove++;
+                 document.game.C11.style = "background:red;";
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     /*Code for the second player*/
+     else {
+         if (smove < 6) {
+                 if (A[0] == 'e') {
+                     cplayer = 1;
+                     smove++;
+                     document.game.C11.style = "background:blue";
+                     A[0] = 2;
+                 }
+                 else {
+                     alert_msg = 'not allowed';
+                     alerts.style.display = 'block';
+                 }
 
-function C_12(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[1] == 'e') {
-                smove++;
-                document.game.C12.style = "background:red;";
-                A[1] = 1;
-                cplayer = 2;
-            }
-            else {
-              alert_msg='not allowed';
-              alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[1] == 'e') {
-                smove++;
-                document.game.C12.style = "background:blue";
-                A[1] = 2;
-                cplayer = 1;
-            }
-            else {
-              alert_msg='not allowed';
-              alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+         }
+         else
+             smove == 7;
+     }
+ }
 
-function C_13(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[2] == 'e') {
-                smove++;
-                document.game.C13.style = "background:red;";
-                A[2] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[2] == 'e') {
-                smove++;
-                document.game.C13.style = "background:blue";
-                A[2] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+ function C_12(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[1] == 'e') {
+                 smove++;
+                 document.game.C12.style = "background:red;";
+                 A[1] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
 
-function C_21(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[3] == 'e') {
-                smove++;
-                document.game.C21.style = "background:red;";
-                A[3] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[3] == 'e') {
-                smove++;
-                document.game.C21.style = "background:blue";
-                A[3] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+             if (A[1] == 'e') {
+                 smove++;
+                 document.game.C12.style = "background:blue";
+                 A[1] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
 
-function C_22(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[4] == 'e') {
-                smove++;
-                document.game.C22.style = "background:red;";
-                A[4] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[4] == 'e') {
-                smove++;
-                document.game.C22.style = "background:blue";
-                A[4] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+         }
+         else
+             smove == 7;
+     }
+ }
 
-function C_23(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[5] == 'e') {
-                smove++;
-                document.game.C23.style = "background:red;";
-                A[5] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[5] == 'e') {
-                smove++;
-                document.game.C23.style = "background:blue";
-                A[5] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+ function C_13(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[2] == 'e') {
+                 smove++;
+                 document.game.C13.style = "background:red;";
+                 A[2] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
 
-function C_31(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[6] == 'e') {
-                smove++;
-                document.game.C31.style = "background:red;";
-                A[6] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[6] == 'e') {
-                smove++;
-                document.game.C31.style = "background:blue";
-                A[6] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+             if (A[2] == 'e') {
+                 smove++;
+                 document.game.C13.style = "background:blue";
+                 A[2] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
 
-function C_32(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[7] == 'e') {
-                smove++;
-                document.game.C32.style = "background:red;";
-                A[7] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[7] == 'e') {
-                smove++;
-                document.game.C32.style = "background:blue";
-                A[7] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+ function C_21(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[3] == 'e') {
+                 smove++;
+                 document.game.C21.style = "background:red;";
+                 A[3] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
 
-function C_33(player) {
-    if (player == 1) {
-        if (smove < 6) {
-            if (A[8] == 'e') {
-                smove++;
-                document.game.C33.style = "background:red;";
-                A[8] = 1;
-                cplayer = 2;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove = 7;
-    }
-    else {
-        if (smove < 6) {
-            if (A[8] == 'e') {
-                smove++;
-                document.game.C33.style = "background:blue";
-                A[8] = 2;
-                cplayer = 1;
-            }
-            else {
-                alert_msg='not allowed';
-                alerts.style.display='block';
-            }
-        }
-        else
-            smove == 7;
-    }
-}
+             if (A[3] == 'e') {
+                 smove++;
+                 document.game.C21.style = "background:blue";
+                 A[3] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
 
+ function C_22(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[4] == 'e') {
+                 smove++;
+                 document.game.C22.style = "background:red;";
+                 A[4] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
+
+             if (A[4] == 'e') {
+                 smove++;
+                 document.game.C22.style = "background:blue";
+                 A[4] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
+
+ function C_23(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[5] == 'e') {
+                 smove++;
+                 document.game.C23.style = "background:red;";
+                 A[5] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
+
+             if (A[5] == 'e') {
+                 smove++;
+                 document.game.C23.style = "background:blue";
+                 A[5] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
+
+ function C_31(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[6] == 'e') {
+                 smove++;
+                 document.game.C31.style = "background:red;";
+                 A[6] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
+
+             if (A[6] == 'e') {
+                 smove++;
+                 document.game.C31.style = "background:blue";
+                 A[6] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
+
+ function C_32(player) {
+     if (player == 1) {
+         if (smove < 6) {
+             if (A[7] == 'e') {
+                 smove++;
+                 document.game.C32.style = "background:red;";
+                 A[7] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
+
+             if (A[7] == 'e') {
+                 smove++;
+                 document.game.C32.style = "background:blue";
+                 A[7] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
+
+ function C_33(player) {
+     if (player == 1) {
+         if (smove < 6) {
+
+             if (A[8] == 'e') {
+                 smove++;
+                 document.game.C33.style = "background:red;";
+                 A[8] = 1;
+                 cplayer = 2;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+             if (com == 1) {
+               info_msg='Computer Is Thinking';
+               infos.style.display='block';
+             setTimeout('auto_play();',1000);
+             }
+         }
+         else
+             smove = 7;
+     }
+     else {
+         if (smove < 6) {
+
+             if (A[8] == 'e') {
+                 smove++;
+                 document.game.C33.style = "background:blue";
+                 A[8] = 2;
+                 cplayer = 1;
+             }
+             else {
+                 alert_msg = 'not allowed';
+                 alerts.style.display = 'block';
+             }
+         }
+         else
+             smove == 7;
+     }
+ }
 /*FUNCTIONS END HERE*/
 
 
 /*This function shows the available moves for a player*/
 function amove(position) {
     switch (position) {
-        case 0: 
+        case 0:
             init();
 
 
@@ -758,12 +813,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -776,12 +833,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -794,12 +853,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -812,12 +873,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -830,12 +893,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -848,12 +913,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -866,12 +933,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -884,12 +953,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -912,12 +983,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -930,12 +1003,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[2] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[2] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -948,12 +1023,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[3] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[3] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -966,12 +1043,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[4] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[4] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -984,12 +1063,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[5] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[5] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1002,12 +1083,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[6] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[6] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1020,12 +1103,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[7] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[7] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1038,12 +1123,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[8] = 1;
                     A[1] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[8] = 2;
                     A[1] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1065,12 +1152,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[1] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[1] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1083,12 +1172,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[0] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[0] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1101,12 +1192,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[3] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[3] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1119,12 +1212,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[4] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[4] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1137,12 +1232,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[5] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[5] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1155,12 +1252,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[6] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[6] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1173,12 +1272,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[7] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[7] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1191,12 +1292,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[8] = 1;
                     A[2] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[8] = 2;
                     A[2] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1218,12 +1321,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1236,12 +1341,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[1] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[1] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1254,12 +1361,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[2] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[2] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1273,12 +1382,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[4] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[4] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1291,12 +1402,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[5] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[5] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1309,12 +1422,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[6] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[6] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1327,12 +1442,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[7] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[7] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1345,12 +1462,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[8] = 1;
                     A[3] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[8] = 2;
                     A[3] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1374,12 +1493,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = 1;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = 2;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1392,12 +1513,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = 1;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = 2;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1410,12 +1533,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = 1;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = 2;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1428,12 +1553,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = 1;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = 2;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1446,12 +1573,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1464,12 +1593,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1482,12 +1613,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1500,12 +1633,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1527,12 +1662,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1545,12 +1682,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1563,12 +1702,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1581,12 +1722,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1599,12 +1742,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1617,12 +1762,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1635,12 +1782,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1653,12 +1802,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1680,12 +1831,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1698,12 +1851,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1716,12 +1871,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1734,12 +1891,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1752,12 +1911,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1770,12 +1931,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1788,12 +1951,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1806,12 +1971,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1833,12 +2000,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1851,12 +2020,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1869,12 +2040,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1887,12 +2060,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1905,12 +2080,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1923,12 +2100,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1941,12 +2120,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1959,12 +2140,14 @@ infos.style.display='block';
                     document.game.C33.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C33.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -1985,12 +2168,14 @@ infos.style.display='block';
                     document.game.C12.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C12.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2003,12 +2188,14 @@ infos.style.display='block';
                     document.game.C13.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C13.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2021,12 +2208,14 @@ infos.style.display='block';
                     document.game.C21.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C21.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2039,12 +2228,14 @@ infos.style.display='block';
                     document.game.C22.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C22.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2057,12 +2248,14 @@ infos.style.display='block';
                     document.game.C23.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C23.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2075,12 +2268,14 @@ infos.style.display='block';
                     document.game.C31.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C31.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2093,12 +2288,14 @@ infos.style.display='block';
                     document.game.C32.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C32.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2111,12 +2308,14 @@ infos.style.display='block';
                     document.game.C11.style = "background:red;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score1++;
                     cplayer = 2;
                 }
                 else {
                     document.game.C11.style = "background:blue;";
                     A[to] = cplayer;
                     A[from] = 'e';
+                    score2++;
                     cplayer = 1;
                 }
             }
@@ -2125,6 +2324,12 @@ infos.style.display='block';
     reset();
     cell1 = 10;
     cell2 = 10;
+    if(cplayer==2){
+    if (com == 1) {
+      info_msg='Computer Is Thinking';
+      infos.style.display='block';
+    setTimeout('auto_move();',1000);
+}}
 
 }
 
@@ -2201,10 +2406,12 @@ function win(n) {
     if (wins == 1) {
         gameover();
          document.cookie="id=" + n +";expires=24*60*60";
+         document.cookie="score=" + score1 +";expires=24*60*60";
         event_msg = 'Player ' + n + '  Wins';
         events.style.display='block';
         smove = 7;
         document.getElementById('score').innerHTML="<?php echo 'hey';?>"; //not working
+        sendRequest();
     }
 
 }
@@ -2235,4 +2442,92 @@ function start(){
   document.getElementById('registration').style.display='none';
   document.getElementById('game_area').style.display='block';
 
+}
+
+/*This function enables the computer to make a move*/
+function auto_move(){
+  var k=1;
+  var l=1;
+  var index;
+  var auto_move;
+  var auto_move1;
+
+  if(wins==0 && cplayer==2){
+  while (k == 1) {
+      auto_move = Math.floor(Math.random() * 9);
+
+      if (A[auto_move] == 2) {
+          cell1=auto_move;
+          amove(cell1);
+            auto_move1 = Math.floor(Math.random() * 9);
+            if(cell1!=auto_move1){
+              for(index=0;index<9;index++){
+                if(A[index]=='a' && index==auto_move1){
+                cell2=auto_move1;
+              //cplayer = 2;
+                k = 0;
+                l=0;
+              }
+            }
+            }
+
+
+      }
+    }
+    main();
+  }
+    else{
+      info_msg='You Will Not Win Next Time';
+      infos.style.display='block';
+    }
+}
+
+/* This functions enables the computer to play*/
+function auto_play(){
+  var k=1;
+  if(wins==0){
+  while (k == 1) {
+      var auto_move = Math.floor(Math.random() * 9);
+
+      if (A[auto_move] == 'e') {
+          A[auto_move] = 2;
+          cplayer = 1;
+          smove++;
+          k = 0;
+      }
+    }
+  }
+    else{
+      info_msg='You Will Not Win Next Time';
+      infos.style.display='block';
+    }
+
+  k=1;
+  if(auto_move==0){
+    document.game.C11.style = "background:blue";
+  }
+  if(auto_move==1){
+    document.game.C12.style = "background:blue";
+  }
+  if(auto_move==2){
+    document.game.C13.style = "background:blue";
+  }
+  if(auto_move==3){
+    document.game.C21.style = "background:blue";
+  }
+  if(auto_move==4){
+    document.game.C22.style = "background:blue";
+  }
+  if(auto_move==5){
+    document.game.C23.style = "background:blue";
+  }
+  if(auto_move==6){
+    document.game.C31.style = "background:blue";
+  }
+  if(auto_move==7){
+    document.game.C32.style = "background:blue";
+  }
+  if(auto_move==8){
+    document.game.C33.style = "background:blue";
+  }
 }
