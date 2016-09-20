@@ -4,6 +4,12 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 //$con=mysqli_connect($server,$user,$password);
 $winner = $_COOKIE['id'];
+$query="create table if not exists high_score(id int not null primary key auto_increment,name varchar(255),score integer)";
+$result=mysqli_query($con, $query);
+if(!$result){
+    echo "connection failed".mysqli_error($con);
+    die();
+}
 if ($winner == 1) {
     $query = "insert into high_score values(null,'{$_SESSION['p1']}',{$_COOKIE['score']})";
 } else {

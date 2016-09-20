@@ -9,10 +9,29 @@ if(!$con){
   echo 'Server Connection Failed'.mysqli_error($con);
   die();
 }
+$query="create database if not exists tic_tac_toe";
+$result=mysqli_query($con, $query);
+if(!$result){
+    echo 'connection failed'.mysqli_error($con);
+    die();
+}
 $dbname='tic_tac_toe';
 $db=mysqli_select_db($con,$dbname);
 if(!$db){
     echo "Database Connection Failed";
+    die();
+}
+
+$query="create table if not exists players(id int not null primary key auto_increment, session_id int,name varchar(10),status int(1))";
+$result=mysqli_query($con, $query);
+if(!$result){
+    echo 'connection failed'.mysqli_error($con);
+    die();
+}
+$query="create table if not exists sessions(id int not null primary key auto_increment, name varchar(10),pass varchar(255),player int(1),active tinyint(1),moves int(1))";
+$result=mysqli_query($con, $query);
+if(!$result){
+    echo 'connection failed'.mysqli_error($con);
     die();
 }
 
