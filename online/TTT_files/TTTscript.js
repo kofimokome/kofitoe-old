@@ -108,7 +108,7 @@ function handleResponse(xhr) {
 
 }
 
-setInterval("if(synch==1){init();}", 100);
+
 
 var info_msg, alert_msg, event_msg;
 info_msg='Click on a cell to start playing';
@@ -116,8 +116,12 @@ info_msg='Click on a cell to start playing';
 var A = new Array(9);
 
 init();
+document.cookie = "change_player=1;expires=24*60*60;path=/";
+sync_cells();
+document.cookie = "change_player=0;expires=24*60*60;path=/";
 win(1);
 win(2);
+setInterval("if(synch==1){init();}", 100);
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -689,16 +693,16 @@ function amove(position) {
                     document.cookie = "A0=" + A[0] + ";expires=24*60*60;path=/";
                 }
                 if (A[2] == "e") {
-                    document.game.C11.style = "background:pink;";
+                    document.game.C13.style = "background:pink;";
                     A[2] = 'a';
                     document.cookie = "A2=" + A[2] + ";expires=24*60*60;path=/";
                 }
                 if (A[4] == "e") {
-                    document.game.C11.style = "background:pink;";
+                    document.game.C22.style = "background:pink;";
                     A[4] = 'a';
                     document.cookie = "A4=" + A[4] + ";expires=24*60*60;path=/";
                     if (A[7] == "e") {
-                        document.game.C11.style = "background:pink;";
+                        document.game.C32.style = "background:pink;";
                         A[7] = 'a';
                         document.cookie = "A7=" + A[7] + ";expires=24*60*60;path=/";
                     }
@@ -2985,7 +2989,12 @@ function sync() {
     }
 
     if (win_player == 1 || win_player == 2) {
+        if(win_player==session_player){
+            event_msg = 'You Win <a href="functions/new.php">NEW GAME</a>';
+        }
+        else{
         event_msg = 'Player ' + win_player + '  Wins <a href="functions/new.php">NEW GAME</a>';
+        }
         events.style.display = 'block';
     }
 }

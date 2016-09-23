@@ -1,12 +1,12 @@
 <?php
 session_start();
 echo "<script>var com=0;</script>";
-$server='localhost';
-$user='root';
-$password='root';
+$server='localhost';//Set your server name here
+$user='root';//Set your server user name here
+$password='root';//Set your server password here
 $con=mysqli_connect($server,$user,$password);
 if(!$con){
-  echo 'Server Connection Failed'.mysqli_error($con);
+  echo 'Server Connection Failed. Please open online/includes/header.php and set you server name($server), server user name ($user) and server password($password). Make sure your server is on and running'.mysqli_error($con);
   die();
 }
 $query="create database if not exists tic_tac_toe";

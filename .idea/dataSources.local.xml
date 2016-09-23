@@ -3,8 +3,9 @@
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - tic_tac_toe@localhost" uuid="6cab41f3-4e8d-4e39-bd23-2cff77d2c588">
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>root</user-name>
+      <schema-pattern>tic_tac_toe.*</schema-pattern>
+      <default-schemas>tic_tac_toe.*</default-schemas>
     </data-source>
   </component>
 </project>

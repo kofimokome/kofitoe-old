@@ -2,8 +2,8 @@
 require_once('../includes/header.php');
 header("Cache-Control: no-cache");
 header("Pragma: no-cache");
-$id=$_SESSION['sess_id'];
-$table=$_SESSION['table'];
+$id = $_SESSION['sess_id'];
+$table = $_SESSION['table'];
 $A0 = $_COOKIE['A0'];
 $A1 = $_COOKIE['A1'];
 $A2 = $_COOKIE['A2'];
@@ -13,15 +13,16 @@ $A5 = $_COOKIE['A5'];
 $A6 = $_COOKIE['A6'];
 $A7 = $_COOKIE['A7'];
 $A8 = $_COOKIE['A8'];
+$change = $_COOKIE['change_player'];
 $player = $_COOKIE['player'];
 
 
-
-
-$query="update sessions set player={$player} where id={$id}";
-$result=mysqli_query($con, $query);
-if(!$result){
-    die('A Problem Occured');
+if ($change == 0) {
+    $query = "update sessions set player={$player} where id={$id}";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        die('A Problem Occured');
+    }
 }
 
 
@@ -88,9 +89,6 @@ if ($A8 == 'a') {
         die('A Problem Occured');
     }
 }
-
-
-
 
 
 ?>

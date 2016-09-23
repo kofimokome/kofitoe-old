@@ -4,6 +4,9 @@ require_once('../includes/header.php');
 if ($_POST['type'] == 'create') {
     $id = 'a';
     $player = $_POST['name'];
+    if($player==''){
+        die('Enter a name');
+    }
     $name = 'game';
     $pass = $_POST['password'];
     $query = "insert into sessions values(null,'{$name}','{$pass}',1,0,0)";
@@ -83,6 +86,9 @@ if ($_POST['type'] == 'create') {
 if ($_POST['type'] == 'join') {
     $id = 'a';
     $name = $_POST['name'];
+    if($name==''){
+        die("enter a name");
+    }
     $pass = $_POST['password'];
     $query = "select id from sessions where name='{$name}'";
     $result = mysqli_query($con, $query);
@@ -120,6 +126,9 @@ if ($_POST['type'] == 'start') {
     $id = 'a';
     $active = 'a';
     $name = $_POST['name'];
+    if($name==''){
+        die("enter a name");
+    }
     $query = "select id from players where name='{$name}' and session_id={$_SESSION['game']}";
     $result = mysqli_query($con, $query);
     if (!$result) {

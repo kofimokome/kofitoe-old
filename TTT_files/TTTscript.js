@@ -37,7 +37,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -79,7 +79,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -121,7 +121,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -162,7 +162,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -203,7 +203,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -244,7 +244,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -285,7 +285,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -326,7 +326,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -368,7 +368,7 @@ init();
                  alerts.style.display = 'block';
              }
              if (com == 1) {
-               info_msg='Computer Is Thinking';
+               info_msg='Genious Is Thinking';
                infos.style.display='block';
              setTimeout('auto_play();',1000);
              }
@@ -2326,7 +2326,7 @@ infos.style.display='block';
     cell2 = 10;
     if(cplayer==2){
     if (com == 1) {
-      info_msg='Computer Is Thinking';
+      info_msg='Genious Is Thinking';
       infos.style.display='block';
     setTimeout('auto_move();',1000);
 }}

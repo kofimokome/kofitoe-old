@@ -49,16 +49,30 @@ require_once('includes/header.php');
   <?php
   if($reg==0){
     echo '
-  <div id="registration">
-    Please enter your names. Leave player 2 blank if you want to play against Genious (The computer) <br/>
-    <form class="" method="post" action="index.php" >
-    Player 1: <input name ="p1" type="text"/>
-    <br>
-    Player 2: <input name= "p2" type="text"/>
-    <br>
-    <button onclick="start()">Start Game</button>
+    <link rel="stylesheet" type="text/css" href="TTT_files/bootstrap.css" media="all"/>
+  <div id="registration" class="container-fluid">
+  <div class="jumbotron">
+        <h1>Welcome to tic tac toe.</h1>
+        <p>Please enter your names. Leave player 2 blank if you want to play against Genious</p>
+    </div>
+    
+    <form class="form-horizontal container-fluid col-md-4 col-md-offset-3 col-xs-4 col-xs-offset-3" method="post" action="index.php" >
+    <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">Player 1:</div>
+      <input name="p1" type="text" class="form-control input-group-sm" placeholder="Your Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">Player 2:</div>
+      <input name="p2" type="text" class="form-control input-group-sm"  placeholder="Your Name">
+    </div>
+  </div>
+    <button class="btn btn-primary" onclick="start()">Start Game</button>
+    <a class="btn btn-primary" href="online/" style="margin-left:30%;">Play Online</a>
     </form>
-    <a href="online/"><button>Play Online</button></a>
+    
   </div>';
 }
 else{
