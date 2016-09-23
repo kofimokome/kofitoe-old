@@ -2,18 +2,18 @@
 # -- Version 2.1 --
 
 #Whats New in 2.1
-- New and improved user interface
-- Fixed some bugs
+- New and improved user interface.
+- Fixed some bugs.
 
 #Whats New in 2.0
-- Added ability to play with your friend on a network
-- fix some bugs
-- Added new functionalities
+- Added ability to play with your friend on a network.
+- fix some bugs.
+- Added new functionalities.
 
 #Whats New in 1.2
-- Improved on the artificial intelligence of the computer
-- Added ability to play against the computer
+- Improved on the artificial intelligence of the computer.
+- Added ability to play against the computer.
 
 #Whats New in 1.0
 - Added ability to play with your friend.
-- First release of the game
+- First release of the game.
