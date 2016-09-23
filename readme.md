@@ -1,5 +1,9 @@
 # Tic Tac Toe , the javascript game
-# -- Version 2.0 --
+# -- Version 2.1 --
+
+#Whats New in 2.1
+- New and improved user interface
+- Fixed some bugs
 
 #Whats New in 2.0
 - Added ability to play with your friend on a network
