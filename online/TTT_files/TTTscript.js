@@ -22,6 +22,25 @@ function init() {
 
 }
 
+function sendChatRequest() {
+    var output=document.getElementById('score');
+    if(xhr){
+        document.getElementById('chat').innerHTML="Chat is disconnected...";
+        xhr.open("GET","functions/get_chat.php",true);
+        xhr.send(null);
+        xhr.onreadystatechange=function () {handleChatResponse(xhr)}
+
+    }
+
+}
+
+function handleChatResponse(xhr) {
+    if(xhr.readyState==4 && xhr.status==200){
+        document.getElementById('chat').innerHTML=xhr.responseText;
+    }
+
+}
+
 function reinit() {
     if (A[0] != 1 && A[0] != 2) {
         A[0] = "e";
@@ -122,6 +141,7 @@ document.cookie = "change_player=0;expires=24*60*60;path=/";
 win(1);
 win(2);
 setInterval("if(synch==1){init();}", 100);
+setInterval("sendChatRequest();",1000);
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -3007,7 +3027,7 @@ setInterval("check(); infos.innerHTML=info_msg;", 100)
 setInterval("alerts.innerHTML=alert_msg;",100);
 setInterval("events.innerHTML=event_msg;",100);
 setInterval("alerts.style.display='none';infos.style.display='none';",4100);
-setInterval("if(wins==0){document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}",100);
+setInterval("if(wins==0){if(session_player==cplayer){document.getElementById('player').innerHTML='Your Turn';}else{document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}}",100);
 setInterval("if(wins==1){document.getElementById('player').innerHTML='';}",100);
 setInterval("document.getElementById('stats').innerHTML=''+score1+'    '+score2;",100);
 

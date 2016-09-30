@@ -1,5 +1,9 @@
 # Tic Tac Toe , the javascript game
-# -- Version 2.1 --
+# -- Version 3.0 beta --
+
+#Whats New in 3.0 beta
+- Added Live Chat
+- Minor Changes
 
 #Whats New in 2.1
 - New and improved user interface.

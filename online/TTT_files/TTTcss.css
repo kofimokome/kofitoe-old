@@ -75,3 +75,9 @@ body {
   text-align: center;
   padding:20px;
 }
+.chat{
+    float:right;
+    position:fixed;
+    right:0;
+    top:21%;
+}
