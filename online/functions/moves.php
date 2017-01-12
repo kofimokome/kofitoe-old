@@ -9,6 +9,7 @@ $player = $_COOKIE['player'];
 $next=$player;
 $smove=$_COOKIE['moves'];
 
+
 if($smove>=6){
     $smove=7;
 }
@@ -63,4 +64,6 @@ $result=mysqli_query($con, $query);
 if(!$result){
     die('A Problem Occured');
 }
+
+
 ?>

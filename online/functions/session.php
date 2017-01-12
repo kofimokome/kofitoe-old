@@ -152,7 +152,7 @@ if ($_POST['type'] == 'start') {
             $_SESSION['sess_id'] = $_SESSION['game'];
             header('Location: /Tic_Tac_Toe/online/');
         } else {
-            $query = "insert into players values(null,{$_SESSION['game']},'{$name}',2)";
+            $query = "insert into players values(null,{$_SESSION['game']},'{$name}',2,now())";
             $result = mysqli_query($con, $query);
             if (!$result) {
                 echo 'connection failed' . mysqli_error($con);
@@ -191,6 +191,7 @@ if ($_POST['type'] == 'start') {
 
     if ($active == 1) {
         $id = 'a';
+        $opponent;
         $query = "select id from players where name='{$name}' and session_id={$_SESSION['game']}";
         $result = mysqli_query($con, $query);
         if (!$result) {
@@ -209,8 +210,27 @@ if ($_POST['type'] == 'start') {
             }
             while ($row = $result->fetch_assoc()) {
                 setcookie("current_player", $row['status'], time() + (86400 * 30), "/");
+                $opponent=$row['status'];
+            }
+            if($opponent==1)
+                $opponent=2;
+            else
+                $opponent=1;
+
+            $_SESSION['opponent_status']=$opponent;
+
+            $query = "select id from players where status='{$opponent}' and session_id={$_SESSION['game']}";
+            $result = mysqli_query($con, $query);
+            if (!$result) {
+                echo 'connection failed' . mysqli_error($con);
+                die();
+            }
+            while ($row = $result->fetch_assoc()) {
+                $opponent=$row['id'];
             }
             $_SESSION['sess_id'] = $_SESSION['game'];
+            $_SESSION['player_id']=$id;
+            $_SESSION['opponent']=$opponent;
             header('Location: /Tic_Tac_Toe/online/');
         } else {
             echo 'Session is already full can not add a new user. Please enter your user name for this session again';

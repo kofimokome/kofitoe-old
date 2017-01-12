@@ -6,6 +6,28 @@ header("Pragma: no-cache");
 
 $id=$_SESSION['sess_id'];
 $table=$_SESSION['table'];
+$player=$_SESSION['player_id'];
+
+$last_seen;
+$opponent=$_SESSION['opponent'];
+$query = "select last_seen from players where id={$opponent}";
+$result = mysqli_query($con, $query);
+if (!$result) {
+    echo 'connection failed' . mysqli_error($con);
+    die();
+}
+while ($row = $result->fetch_assoc()) {
+    $last_seen=$row['last_seen'];
+}
+
+if(time()-strtotime($last_seen)<60){
+    setcookie("last_seen", "online", time() + (86400 * 30),"/");
+}
+else {
+   //date('j F Y',$last_seen);
+    setcookie("last_seen",strtotime($last_seen) , time() + (86400 * 30),"/");
+}
+
 
 $query="select moves,active,player from sessions where id={$id}";
 $result = mysqli_query($con, $query);
@@ -59,6 +81,12 @@ while ($row = $result->fetch_assoc()) {
     setcookie("A7", $row['col_2'], time() + (86400 * 30), "/");
     setcookie("A8", $row['col_3'], time() + (86400 * 30), "/");
 }
-
+$date=date('Y-m-d H:i:s',time());
+$query = "update players set last_seen='{$date}' where id={$player};";
+$result = mysqli_query($con, $query);
+if(!$result){
+    echo 'Query failed'.mysqli_error($con);
+    die();
+}
 
 ?>
