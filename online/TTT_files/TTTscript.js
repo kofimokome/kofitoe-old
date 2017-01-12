@@ -1,19 +1,40 @@
 var wins = 0, win_player = 0, session_player, cplayer = 0, smove = 0, i, cell1 = 10, cell2 = 10, cmove, winner = 0, score1 = 3, score2 = 3;
+var pass = 1; //Gives authority to an xhr request  1=OK ,0=wait
 /*Variable explanation:
  cplayer stores the number of the current player
  smove determines the maximum number of moves allowed*/
 
+
+function timeConverter(unixtime) {
+    var a = new Date(unixtime * 1000);
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var day=days[a.getDay()];
+    var time = day+", "+date + " " + month + " " + year;// + " " + hour + ":" + min + ":" + sec;
+    return time;
+}
+
+
 var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("MSXML2.XMLHTTP.3.0");
-var synch = 1;
+var synch;
+document.cookie = "synch=" + 1 + ";expires=24*60*60;path=/";
 delCookie("moves");
 delCookie("cplayer");
 document.cookie = "win=" + win_player + ";expires=24*60*60";
 function init() {
-    if (xhr) {
+    /*while(pass==0){
 
+     }*/
+    if (xhr) {
+        pass = 0;
         xhr.open("GET", "functions/refresh.php", true);
         xhr.send(null);
-        synch = 1;
         xhr.onreadystatechange = function () {
             handleResponse(xhr)
         }
@@ -21,22 +42,33 @@ function init() {
     }
 
 }
-
+function lastSeen() {
+    if (!isNaN(getCookie("last_seen")))
+        document.getElementById("user_status").innerHTML = "last seen " + timeConverter(getCookie("last_seen")); //Math.round(Date.now() / 1000) + " : " + getCookie("last_seen");
+    else
+        document.getElementById("user_status").innerHTML = getCookie("last_seen");
+}
 function sendChatRequest() {
-    var output=document.getElementById('score');
-    if(xhr){
-        document.getElementById('chat').innerHTML="Chat is disconnected...";
-        xhr.open("GET","functions/get_chat.php",true);
+    var output = document.getElementById('score');
+    /*while(pass==0){
+     }*/
+    if (xhr) {
+        pass = 0;
+        document.getElementById('chat').innerHTML = "Chat is disconnected...";
+        xhr.open("GET", "functions/get_chat.php", true);
         xhr.send(null);
-        xhr.onreadystatechange=function () {handleChatResponse(xhr)}
+        xhr.onreadystatechange = function () {
+            handleChatResponse(xhr)
+        }
 
     }
 
 }
 
 function handleChatResponse(xhr) {
-    if(xhr.readyState==4 && xhr.status==200){
-        document.getElementById('chat').innerHTML=xhr.responseText;
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        document.getElementById('chat').innerHTML = xhr.responseText;
+        pass = 1;
     }
 
 }
@@ -83,7 +115,11 @@ function reinit() {
 }
 
 function sync_moves() {
+    /* while(pass==0){
+
+     }*/
     if (xhr) {
+        pass = 0;
         xhr.open("GET", "functions/moves.php", true);
         xhr.send(null);
         xhr.onreadystatechange = function () {
@@ -95,7 +131,11 @@ function sync_moves() {
 }
 
 function sync_cells() {
+    /* while(pass==0){
+
+     }*/
     if (xhr) {
+        pass = 0
         xhr.open("GET", "functions/cells.php", true);
         xhr.send(null);
         xhr.onreadystatechange = function () {
@@ -108,7 +148,11 @@ function sync_cells() {
 
 
 function sync_amoves() {
+    /*while(pass==0){
+
+     }*/
     if (xhr) {
+        pass = 0;
         xhr.open("GET", "functions/amove.php", true);
         xhr.send(null);
         xhr.onreadystatechange = function () {
@@ -123,14 +167,14 @@ function handleResponse(xhr) {
     if (xhr.readyState == 4 && xhr.status == 200) {
         refresh();
         sync();
+        pass = 1;
     }
 
 }
 
 
-
 var info_msg, alert_msg, event_msg;
-info_msg='Click on a cell to start playing';
+info_msg = 'Click on a cell to start playing';
 /*This function initialises the array used to store player moves*/
 var A = new Array(9);
 
@@ -140,8 +184,15 @@ sync_cells();
 document.cookie = "change_player=0;expires=24*60*60;path=/";
 win(1);
 win(2);
-setInterval("if(synch==1){init();}", 100);
-setInterval("sendChatRequest();",1000);
+
+function getinit() {
+    synch = getCookie("synch");
+    if (pass == 1 && synch == 1) {
+        init();
+    }
+}
+setInterval("getinit();lastSeen();", 300);
+setInterval("if(pass==1){sendChatRequest()};", 2000);
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -663,7 +714,8 @@ function C_33(player) {
 /*This function shows the available moves for a player*/
 function amove(position) {
     if (cplayer == session_player) {
-        synch = 0;
+        // synch = 0;
+        document.cookie = "synch=" + 0 + ";expires=24*60*60;path=/";
         switch (position) {
             case 0:
                 reinit();
@@ -1023,6 +1075,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 1) {
@@ -1225,6 +1278,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 0) {
@@ -1363,6 +1417,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 1) {
@@ -1568,6 +1623,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 0) {
@@ -1706,14 +1762,13 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 1) {
             if (A[1] == 'a') {
                 if (cplayer == 1) {
                     A[to] = 1;
-                    A[from] = 'e';
-                    A[to] = 2;
                     A[from] = 'e';
                     document.cookie = "A1=" + A[to] + ";expires=24*60*60;path=/";
                     document.cookie = "A4=" + A[from] + ";expires=24*60*60;path=/";
@@ -1965,6 +2020,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
 
@@ -2099,6 +2155,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
 
@@ -2296,6 +2353,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
         if (to == 1) {
@@ -2442,6 +2500,7 @@ function move(from, to) {
         if (to == from) {
             info_msg = 'Move Cancelled';
             infos.style.display = 'block';
+            document.cookie = "synch=1;expires=24*60*60;path=/";
         }
 
 
@@ -2663,19 +2722,19 @@ function autoname(cell) {
     if (wins == 0) {
         if (smove == 7) {
             if (cell1 == 10) {
-                if (cplayer == 1 && A[cell] == 1 && cplayer==session_player) {
+                if (cplayer == 1 && A[cell] == 1 && cplayer == session_player) {
                     cell1 = cell;
                     amove(cell1);
                     info_msg = 'cells in pink indicate available moves';
                     infos.style.display = 'block';
                 }
-                if (cplayer == 2 && A[cell] == 2 && cplayer==session_player) {
+                if (cplayer == 2 && A[cell] == 2 && cplayer == session_player) {
                     cell1 = cell;
                     amove(cell1);
                     info_msg = 'cells in pink indicate available moves';
                     infos.style.display = 'block';
                 }
-                if ((cplayer == 1 && A[cell] == 2 && cplayer==session_player) || ( cplayer == 2 && A[cell] == 1 && cplayer==session_player)) {
+                if ((cplayer == 1 && A[cell] == 2 && cplayer == session_player) || ( cplayer == 2 && A[cell] == 1 && cplayer == session_player)) {
                     alerts.style.display = 'block';
                     alert_msg = '!! Not Allowed !!';
                 }
@@ -3009,27 +3068,27 @@ function sync() {
     }
 
     if (win_player == 1 || win_player == 2) {
-        if(win_player==session_player){
+        if (win_player == session_player) {
             event_msg = 'You Win <a href="functions/new.php">NEW GAME</a>';
         }
-        else{
-        event_msg = 'Player ' + win_player + '  Wins <a href="functions/new.php">NEW GAME</a>';
+        else {
+            event_msg = 'Player ' + win_player + '  Wins <a href="functions/new.php">NEW GAME</a>';
         }
         events.style.display = 'block';
     }
 }
 
 
-var infos=document.getElementById('info');
-var events=document.getElementById('success');
-var alerts=document.getElementById('error');
+var infos = document.getElementById('info');
+var events = document.getElementById('success');
+var alerts = document.getElementById('error');
 setInterval("check(); infos.innerHTML=info_msg;", 100)
-setInterval("alerts.innerHTML=alert_msg;",100);
-setInterval("events.innerHTML=event_msg;",100);
-setInterval("alerts.style.display='none';infos.style.display='none';",4100);
-setInterval("if(wins==0){if(session_player==cplayer){document.getElementById('player').innerHTML='Your Turn';}else{document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}}",100);
-setInterval("if(wins==1){document.getElementById('player').innerHTML='';}",100);
-setInterval("document.getElementById('stats').innerHTML=''+score1+'    '+score2;",100);
+setInterval("alerts.innerHTML=alert_msg;", 100);
+setInterval("events.innerHTML=event_msg;", 100);
+setInterval("alerts.style.display='none';infos.style.display='none';", 4100);
+setInterval("if(wins==0){if(session_player==cplayer){document.getElementById('player').innerHTML='Your Turn';}else{document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}}", 100);
+setInterval("if(wins==1){document.getElementById('player').innerHTML='';}", 100);
+setInterval("document.getElementById('stats').innerHTML=''+score1+'    '+score2;", 100);
 
 
 //    function sendRequest() {

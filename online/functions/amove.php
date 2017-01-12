@@ -2,8 +2,8 @@
 require_once('../includes/header.php');
 header("Cache-Control: no-cache");
 header("Pragma: no-cache");
-$id=$_SESSION['sess_id'];
-$table=$_SESSION['table'];
+$id = $_SESSION['sess_id'];
+$table = $_SESSION['table'];
 $A0 = $_COOKIE['A0'];
 $A1 = $_COOKIE['A1'];
 $A2 = $_COOKIE['A2'];

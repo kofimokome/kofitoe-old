@@ -55,7 +55,7 @@ require_once('includes/header.php');
         <h1>Welcome to tic tac toe.</h1>
         <p>Please enter your names. Leave player 2 blank if you want to play against Genious</p>
     </div>
-    
+
     <form class="form-horizontal container-fluid col-md-4 col-md-offset-3 col-xs-4 col-xs-offset-3" method="post" action="index.php" >
     <div class="form-group">
     <div class="input-group">
@@ -72,7 +72,7 @@ require_once('includes/header.php');
     <button class="btn btn-primary" onclick="start()">Start Game</button>
     <a class="btn btn-primary" href="online/" style="margin-left:30%;">Play Online</a>
     </form>
-    
+
   </div>';
 }
 else{

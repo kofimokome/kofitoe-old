@@ -1,4 +1,5 @@
 var wins = 0, cplayer = 1, smove = 0, i, cell1 = 10, cell2 = 10, cmove,winner=0,score1=3,score2=3;
+
 /*Variable explanation:
  cplayer stores the number of the current player
  smove determines the maximum number of moves allowed*/

@@ -89,6 +89,5 @@ if ($A8 == 'a') {
         die('A Problem Occured');
     }
 }
-
-
+setcookie("synch", 1, time() + (86400 * 30), "/");
 ?>

@@ -21,8 +21,8 @@ if(!$db){
     echo "Database Connection Failed";
     die();
 }
-
-$query="create table if not exists players(id int not null primary key auto_increment, session_id int,name varchar(10),status int(1))";
+//TIMESTAMP NOT NULL
+$query="create table if not exists players(id int not null primary key auto_increment, session_id int,name varchar(10),status int(1),last_seen TIMESTAMP)";
 $result=mysqli_query($con, $query);
 if(!$result){
     echo 'connection failed'.mysqli_error($con);

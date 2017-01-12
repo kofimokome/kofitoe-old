@@ -6,6 +6,7 @@ if (!isset($_SESSION['sess_id'])) {
 }
 
 //unset($_SESSION['sess_id']);
+
 ?>
 <html>
 <head>
@@ -19,6 +20,12 @@ if (!isset($_SESSION['sess_id'])) {
 <body>
 <div class="welcome">
     Welcome to Tic Tac Toe. <span id="player"></span> <a href="functions/quit.php">QUIT GAME</a>
+    <br>
+    <?php
+    $player=$_SESSION['opponent_status'];
+    echo 'Player '.$player.": ";
+
+    ?><span id="user_status"></span>
 </div>
 <?php
 $query = "select active from sessions where id='{$_SESSION['sess_id']}'";
@@ -32,7 +39,7 @@ while ($row = $result->fetch_assoc()) {
 if ($active == 0) {
     echo '
   <div class="welcome">
-    Waiting for a player to join <input type="hidden" id="stats"/> 
+    Waiting for a player to join <input type="hidden" id="stats"/>
   </div>';
 } else {
     echo '
