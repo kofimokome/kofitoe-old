@@ -1,0 +1,79 @@
+body{
+    background-color: #F8F8F8;
+    color:#606C71;
+}
+
+#game-title{
+    font-size:6em;
+}
+
+img{
+    height:50em;
+    width:50em;
+}
+
+.text-center h2{
+    margin-top:0;
+}
+
+.heading{
+    font-size:3em;
+}
+
+#what-is-new{
+    overflow: auto; height:13cm;
+}
+
+.how-to-play p, .how-to-play li{
+    font-size:1.5em;
+}
+@media (max-width: 458px) {
+    #game-title{
+        font-size:5em;
+    }
+
+}
+
+@media (max-width: 700px){
+    .heading{
+        font-size:2em;
+    }
+    .how-to-play p, .how-to-play li{
+        font-size:1em;
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    font-size: 2.9rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
+.btn + .btn {
+    margin-left: 1rem; }
+
+.btn:hover {
+    text-decoration: none;
+    border-color: rgba(255, 255, 255, 0.3); }
+
+@media screen and (min-width: 64em) {
+    .btn {
+        padding: 0.75rem 1rem; } }
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .btn {
+        padding: 0.6rem 0.9rem;
+        font-size: 1.9rem; } }
+
+@media screen and (max-width: 42em) {
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1.9rem; }
+    .btn + .btn {
+        margin-top: 1rem;
+        margin-left: 0; } }
