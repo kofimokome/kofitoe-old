@@ -1,9 +1,15 @@
 <?php
 require_once('includes/header.php');
-
-if (!isset($_SESSION['sess_id'])) {
-    header('Location: session/');
+if (!isset($_SESSION['login']) || $_SESSION['login'] == 0) {
+    echo "<script>window.location='login/';</script>";
 }
+if (!isset($_SESSION['sess_id'])) {
+    echo "<script>window.location='session/';</script>";
+}
+
+/*echo "status: ".$_SESSION['opponent_status'];
+echo " opponent: ".$_SESSION['opponent'];*/
+
 
 //unset($_SESSION['sess_id']);
 
@@ -14,16 +20,20 @@ if (!isset($_SESSION['sess_id'])) {
         KOFI : Tic Tac Toe
     </title>
     <script type="text/javascript" src="TTT_files/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="TTT_files/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="TTT_files/TTTcss.css" media="all"/>
+    <noscript>
+        <meta http-equiv="Refresh" CONTENT="0; URL=noscript.html"/>
+    </noscript>
 
 </head>
 <body>
 <div class="welcome">
-    Welcome to Tic Tac Toe. <span id="player"></span> <a href="functions/quit.php">QUIT GAME</a>
+    Tic Tac Toe: <span id="player"></span> <a href="functions/quit.php">QUIT GAME</a>
     <br>
     <?php
-    $player=$_SESSION['opponent_status'];
-    echo 'Player '.$player.": ";
+    $player = $_SESSION['opponent_status'];
+    echo 'Player ' . $player . ": ";
 
     ?><span id="user_status"></span>
 </div>
@@ -88,19 +98,27 @@ if ($active == 0) {
 <div id="score">
 
 </div>
-<div class="chat">
-    <hr>
 
-    <div style="text-align: center;">Live Chat</div>
-    <hr>
-    <div id="chat"></div>
-    <?php
-    echo '
-  <form action="functions/post_chat.php" method="post">
-      <input type="text" name="message"  placeholder="Your Meassage here">
-      <button>Send</button>
-  </form>';
-    ?>
+<div class="chat-sidebar focus">
+    <div class="list-group">
+        <!-- <p class="text-center visible-xs"><a href="#" class="hide-chat btn btn-success">Hide</a></p> -->
+        <p class="text-center chat-title">Chat</p>
+        <hr>
+        <div class="chat">
+            <div id="chat"></div>
+        </div>
+        <div class="chat-search">
+            <form action="functions/post_chat.php" method="post">
+                <input type="text" name="message" placeholder="Your Meassage here">
+                <button>Send</button>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<div class="chat-toggle chat-toggle-width">
+    <b>Hide/Show</b>
 </div>
 <script type="text/javascript" src="TTT_files/TTTscript.js">
 

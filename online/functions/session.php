@@ -1,15 +1,33 @@
 <?php
 require_once('../includes/header.php');
 
+
 if ($_POST['type'] == 'create') {
     $id = 'a';
-    $player = $_POST['name'];
-    if($player==''){
-        die('Enter a name');
-    }
     $name = 'game';
     $pass = $_POST['password'];
-    $query = "insert into sessions values(null,'{$name}','{$pass}',1,0,0)";
+    $player = '';
+    if($pass==''){
+        $_SESSION['error']="CSK";//Create Session Key
+        echo "<script>window.location='../session/';</script>";
+        die("please enter a password");
+    }
+
+    //  --      Get the user's name     --  //
+
+    $query = "select username from users where id={$_SESSION['login']}";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        echo 'connection failed' . mysqli_error($con);
+        die();
+    }
+    while ($row = $result->fetch_assoc()) {
+        $player = $row['username'];
+    }
+
+    //  --      Get the user's name     --  //
+
+    $query = "insert into sessions values(null,{$_SESSION['login']},'{$name}','{$pass}',1,0,0)";
     $result = mysqli_query($con, $query);
     if (!$result) {
         echo 'connection failed' . mysqli_error($con);
@@ -70,7 +88,7 @@ if ($_POST['type'] == 'create') {
         die();
     }
 
-    $query = "insert into players values(null,{$id},'{$player}',1)";
+    $query = "insert into players values(null,{$id},{$_SESSION['login']},1,now())";
     $result = mysqli_query($con, $query);
     if (!$result) {
         echo 'connection failed' . mysqli_error($con);
@@ -80,13 +98,17 @@ if ($_POST['type'] == 'create') {
     $_SESSION['sess_id'] = $id;
     $_SESSION['table'] = $name;
     setcookie("current_player", 1, time() + (86400 * 30), "/");
-    echo " your session has been created Give the information to your friend. <br> Session name: {$name} <br>Session key:{$pass} <br> <a href='../../online'>Start Game</a>";
+    $_SESSION['sess_name']=$name;
+    $_SESSION['sess_key']=$pass;
+    echo "<script>window.location='../session/';</script>";
 
 }
 if ($_POST['type'] == 'join') {
     $id = 'a';
     $name = $_POST['name'];
-    if($name==''){
+    if ($name == '') {
+        $_SESSION['error']="JSN";//Join Session Name
+        echo "<script>window.location='../session/';</script>";
         die("enter a name");
     }
     $pass = $_POST['password'];
@@ -110,13 +132,17 @@ if ($_POST['type'] == 'join') {
             if ($pass == $row['pass']) {
                 $_SESSION['game'] = $id;
                 $_SESSION['table'] = $name;
-                header('Location: /Tic_Tac_Toe/online/');
+                echo "<script>window.location='../session/join';</script>";
             } else {
+                $_SESSION['error']="JSK";//Join Session Key
+                echo "<script>window.location='../session/';</script>";
                 die('password incorrect');
             }
 
         }
     } else {
+        $_SESSION['error']="JSN";//Join Session Name
+        echo "<script>window.location='../session/';</script>";
         die("session not found");
     }
 
@@ -125,11 +151,8 @@ if ($_POST['type'] == 'join') {
 if ($_POST['type'] == 'start') {
     $id = 'a';
     $active = 'a';
-    $name = $_POST['name'];
-    if($name==''){
-        die("enter a name");
-    }
-    $query = "select id from players where name='{$name}' and session_id={$_SESSION['game']}";
+
+    $query = "select id from players where user_id='{$_SESSION['login']}' and session_id={$_SESSION['game']}";
     $result = mysqli_query($con, $query);
     if (!$result) {
         echo 'connection failed' . mysqli_error($con);
@@ -148,11 +171,11 @@ if ($_POST['type'] == 'start') {
     }
 
     if ($active == 0) {
-        if ($id > 0) {
+        if ($id > 0) {  //if the player if found
             $_SESSION['sess_id'] = $_SESSION['game'];
-            header('Location: /Tic_Tac_Toe/online/');
-        } else {
-            $query = "insert into players values(null,{$_SESSION['game']},'{$name}',2,now())";
+            echo "<script>window.location='../';</script>";
+        } else { //if player is not yet in the database
+            $query = "insert into players values(null,{$_SESSION['game']},{$_SESSION['login']},2,now())";
             $result = mysqli_query($con, $query);
             if (!$result) {
                 echo 'connection failed' . mysqli_error($con);
@@ -165,7 +188,7 @@ if ($_POST['type'] == 'start') {
                 die();
             }
             $id = 'a';
-            $query = "select id from players where name='{$name}' and session_id={$_SESSION['game']} ";
+            $query = "select id from players where user_id='{$_SESSION['login']}' and session_id={$_SESSION['game']} ";
             $result = mysqli_query($con, $query);
             if (!$result) {
                 echo 'connection failed' . mysqli_error($con);
@@ -185,14 +208,14 @@ if ($_POST['type'] == 'start') {
             }
 
             $_SESSION['sess_id'] = $_SESSION['game'];
-            header('Location: /Tic_Tac_Toe/online/');
+            echo "<script>window.location='../';</script>";
         }
     }
 
     if ($active == 1) {
         $id = 'a';
         $opponent;
-        $query = "select id from players where name='{$name}' and session_id={$_SESSION['game']}";
+        $query = "select id from players where user_id='{$_SESSION['login']}' and session_id={$_SESSION['game']}";
         $result = mysqli_query($con, $query);
         if (!$result) {
             echo 'connection failed' . mysqli_error($con);
@@ -210,14 +233,14 @@ if ($_POST['type'] == 'start') {
             }
             while ($row = $result->fetch_assoc()) {
                 setcookie("current_player", $row['status'], time() + (86400 * 30), "/");
-                $opponent=$row['status'];
+                $opponent = $row['status'];
             }
-            if($opponent==1)
-                $opponent=2;
+            if ($opponent == 1)
+                $opponent = 2;
             else
-                $opponent=1;
+                $opponent = 1;
 
-            $_SESSION['opponent_status']=$opponent;
+            $_SESSION['opponent_status'] = $opponent;
 
             $query = "select id from players where status='{$opponent}' and session_id={$_SESSION['game']}";
             $result = mysqli_query($con, $query);
@@ -226,14 +249,14 @@ if ($_POST['type'] == 'start') {
                 die();
             }
             while ($row = $result->fetch_assoc()) {
-                $opponent=$row['id'];
+                $opponent = $row['id'];
             }
             $_SESSION['sess_id'] = $_SESSION['game'];
-            $_SESSION['player_id']=$id;
-            $_SESSION['opponent']=$opponent;
-            header('Location: /Tic_Tac_Toe/online/');
+            $_SESSION['player_id'] = $id;
+            $_SESSION['opponent'] = $opponent;
+            echo "<script>window.location='../';</script>";
         } else {
-            echo 'Session is already full can not add a new user. Please enter your user name for this session again';
+            echo 'Session is already full can not add a new user.';
         }
     }
 

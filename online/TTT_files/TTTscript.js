@@ -1,22 +1,33 @@
 var wins = 0, win_player = 0, session_player, cplayer = 0, smove = 0, i, cell1 = 10, cell2 = 10, cmove, winner = 0, score1 = 3, score2 = 3;
+var active;
 var pass = 1; //Gives authority to an xhr request  1=OK ,0=wait
 /*Variable explanation:
  cplayer stores the number of the current player
- smove determines the maximum number of moves allowed*/
+ smove determines the maximum number of moves allowed
+*/
 
+if (!navigator.cookieEnabled) {
+    window.location='nocookie.html';
+}
 
 function timeConverter(unixtime) {
     var a = new Date(unixtime * 1000);
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
     var sec = a.getSeconds();
-    var day=days[a.getDay()];
-    var time = day+", "+date + " " + month + " " + year;// + " " + hour + ":" + min + ":" + sec;
+    var day = days[a.getDay()];
+    var period_of_the_day = " am";
+    if (hour > 12) {
+        hour = hour - 12;
+        period_of_the_day = " pm";
+    }
+    var time = day + ", " + date + " " + month + " " + year + " at " + hour + ":" + min + period_of_the_day;// + " " + hour + ":" + min + ":" + sec;
+
     return time;
 }
 
@@ -42,12 +53,18 @@ function init() {
     }
 
 }
+
+
 function lastSeen() {
-    if (!isNaN(getCookie("last_seen")))
-        document.getElementById("user_status").innerHTML = "last seen " + timeConverter(getCookie("last_seen")); //Math.round(Date.now() / 1000) + " : " + getCookie("last_seen");
-    else
-        document.getElementById("user_status").innerHTML = getCookie("last_seen");
+    active = getCookie("active");
+    if (active == 1) {
+        if (!isNaN(getCookie("last_seen")))
+            document.getElementById("user_status").innerHTML = "last seen " + timeConverter(getCookie("last_seen")); //Math.round(Date.now() / 1000) + " : " + getCookie("last_seen");
+        else
+            document.getElementById("user_status").innerHTML = getCookie("last_seen");
+    }
 }
+
 function sendChatRequest() {
     var output = document.getElementById('score');
     /*while(pass==0){
@@ -135,7 +152,7 @@ function sync_cells() {
 
      }*/
     if (xhr) {
-        pass = 0
+        pass = 0;
         xhr.open("GET", "functions/cells.php", true);
         xhr.send(null);
         xhr.onreadystatechange = function () {
@@ -292,7 +309,7 @@ function C_11(player) {
 
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -345,7 +362,7 @@ function C_12(player) {
 
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -396,7 +413,7 @@ function C_13(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -447,7 +464,7 @@ function C_21(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -498,7 +515,7 @@ function C_22(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -549,7 +566,7 @@ function C_23(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -600,7 +617,7 @@ function C_31(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -651,7 +668,7 @@ function C_32(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -703,7 +720,7 @@ function C_33(player) {
                 }
             }
             else
-                smove == 7;
+                smove = 7;
         }
     }
 }
@@ -3082,11 +3099,11 @@ function sync() {
 var infos = document.getElementById('info');
 var events = document.getElementById('success');
 var alerts = document.getElementById('error');
-setInterval("check(); infos.innerHTML=info_msg;", 100)
+setInterval("check(); infos.innerHTML=info_msg;", 100);
 setInterval("alerts.innerHTML=alert_msg;", 100);
 setInterval("events.innerHTML=event_msg;", 100);
 setInterval("alerts.style.display='none';infos.style.display='none';", 4100);
-setInterval("if(wins==0){if(session_player==cplayer){document.getElementById('player').innerHTML='Your Turn';}else{document.getElementById('player').innerHTML='Player '+cplayer+ 's turn';}}", 100);
+setInterval("if(wins==0){if(session_player==cplayer){document.getElementById('player').innerHTML='Your Turn';}else{document.getElementById('player').innerHTML=getCookie('cplayer_name')+ ' s turn';}}", 100);
 setInterval("if(wins==1){document.getElementById('player').innerHTML='';}", 100);
 setInterval("document.getElementById('stats').innerHTML=''+score1+'    '+score2;", 100);
 

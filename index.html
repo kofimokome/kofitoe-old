@@ -1,125 +1,192 @@
-﻿<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tic-tac-toe by kofimokome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KOFI : Tic Tac Toe</title>
+    <script src="TTT_files/jquery-3.1.0.js"></script>
+    <script src="TTT_files/jquery.fullpage.js"></script>
+    <script src="TTT_files/bootstrap.js"></script>
+    <link rel="stylesheet" href="TTT_files/jquery.fullpage.css">
+    <link rel="stylesheet" href="TTT_files/bootstrap.css">
+    <link rel="stylesheet" href="TTT_files/styles.css">
+    <link rel="stylesheet" href="TTT_files/font-awesome.css">
+    <script>
+        $(document).ready(function () {
+            $('#fullpage').fullpage({
+                resetSliders: true
+            });
+        });
+    </script>
 </head>
 <body>
-<section class="page-header">
-    <h1 class="project-name">Tic-Tac-Toe</h1>
-    <h2 class="project-tagline">This is a javascript tic tac toe game</h2>
-    <a href="https://github.com/kofimokome/tic-tac-toe" class="btn">View on GitHub</a>
-    <a href="https://github.com/kofimokome/tic-tac-toe/zipball/master" class="btn">Download .zip</a>
-    <a href="https://github.com/kofimokome/tic-tac-toe/tarball/master" class="btn">Download .tar.gz</a>
-    <a href="TTT.html" class="btn">Play Demo Now</a>
-    <a href="index.php" class="btn">Play full game Now (Download game to unlock)</a>
-</section>
+<div id="fullpage">
+    <div class="section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"></a>
+                </div>
 
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Andriod</a></li>
+                        <li><a href="#">Java</a></li>
+                        <li><a href="#">About the Author</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="text-center">
+                <span id="game-title">Tic Tac Toe</span>
+                <h2>A JavaScript Game</h2>
+                <h3> Version 4.1</h3>
+            </div>
+            <div class="col-md-offset-3">
+                <img class="img-responsive" src="TTT_files/Untitled-5.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container-fluid how-to-play">
+            <span class="heading">How To Play</span>
 
-<section class="main-content">
-    <img src="TTT_files/Untitled-5.png"/>
-    <h1>
-        <a id="tic-tac-toe--the-javascript-game-made-by-kofi-mokome" class="anchor"
-           href="#tic-tac-toe--the-javascript-game-made-by-kofi-mokome" aria-hidden="true"><span aria-hidden="true"
-                                                                                                 class="octicon octicon-link"></span></a>Tic
-        Tac Toe , the javascript game made by Kofi Mokome</h1>
+            <p>Each player has 3 'seeds' . Place your 'seed' on the board by clicking an empty location.
+                After the second player plays his/her third 'seed', you can move you 'seed' from one location to another
+                by
+                clicking on the the 'seed' you want to move, then click the new location.</p>
 
-    <h1>
-        <a id="---version-21---" class="anchor" href="#---version-21---" aria-hidden="true"><span aria-hidden="true"
-                                                                                                  class="octicon octicon-link"></span></a>--
-        Version 3.0 --</h1>
+            <p>For Online players, you can:</p>
 
-    <h1>
-        <a id="how-to-play" class="anchor" href="#how-to-play" aria-hidden="true"><span aria-hidden="true"
-                                                                                        class="octicon octicon-link"></span></a>How
-        To Play</h1>
+            <ul>
+                <li>Create a new game: You can create a new game by filling a session password. You will
+                    be
+                    given a session name and password. You can then give the session name and password to your friend.
+                </li>
+                <li>Join a game: You can join a game by filling the session name and password. You will be asked if you
+                    want to join the session. Click the join button.
+                </li>
+                <li>Note: Only two players are allowed in a session.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container-fluid download-play">
+            <span class="heading">Play Now</span><br>
+            <a href="TTT.html" class="btn btn-info btn-lg">Play Demo Now</a>
+            <a href="index.php" class="btn btn-success btn-lg">Play full game Now (Download game to unlock)</a>
+            <br><br><br><br>
 
-    <p>Each player has 3 'seeds' . Place your 'seed' on the board by clicking an empty location.
-        After the second player plays his/her third 'seed', you can move you 'seed' from one location to another by
-        clicking on the the 'seed' you want to move, then click the new location.</p>
+            <span class="heading">Download for free</span><br>
+            <a href="https://github.com/kofimokome/tic-tac-toe" class="btn btn-primary btn-lg">View on GitHub</a>
+            <a href="https://github.com/kofimokome/tic-tac-toe/zipball/master" class="btn btn-primary btn-lg">Download
+                .zip</a>
+            <a href="https://github.com/kofimokome/tic-tac-toe/tarball/master" class="btn btn-primary btn-lg">Download
+                .tar.gz</a>
 
-    <p>For Online players, you can:</p>
+        </div>
+    </div>
 
-    <ul>
-        <li>Create a new game: You can create a new game by filling your name and the session password. You will be
-            given a session name and password. You can then give the session name and password to your friend.
-        </li>
-        <li>Join a game: You can join a game by filling the session name and password. You will be asked to enter your
-            name.
-        </li>
-        <li>Note: Only two players are allowed in a session ththeeh d.</li>
-    </ul>
+    <div class="section">
+        <div class="container-fluid what-is-new">
+            <h1>Change Log</h1>
+            <div id="what-is-new">
+                <h1>
+                    What's
+                    New in 4.1</h1>
 
-    <h1>
-        <a id="whats-new-in-30" class="anchor" href="#whats-new-in-30" aria-hidden="true"><span aria-hidden="true"
-                                                                                                class="octicon octicon-link"></span></a>Whats
-        New in 3.0</h1>
+                <ul>
+                    <li> New User interface</li>
+                    <li> Improved on the (artificial) intelligence of GENIUS</li>
+                </ul>
 
-    <ul>
-        <li> Fixed bugs</li>
-        <li> Added online and last seen</li>
-        <li> Added Live Chat</li>
-        <li>Minor Changes</li>
-    </ul>
-    <h1>
-        <a id="whats-new-in-21" class="anchor" href="#whats-new-in-21" aria-hidden="true"><span aria-hidden="true"
-                                                                                                class="octicon octicon-link"></span></a>Whats
-        New in 2.1</h1>
+                <h1>
+                    What's
+                    New in 4.0</h1>
 
-    <ul>
-        <li>New and improved user interface.</li>
-        <li>Fixed some bugs</li>
-    </ul>
+                <ul>
+                    <li> Users can create an account</li>
+                    <li> Improved on the (artificial) intelligence of GENIUS</li>
+                </ul>
+                <h1>
+                    What's
+                    New in 3.0</h1>
 
-    <h1>
-        <a id="whats-new-in-20" class="anchor" href="#whats-new-in-20" aria-hidden="true"><span aria-hidden="true"
-                                                                                                class="octicon octicon-link"></span></a>Whats
-        New in 2.0</h1>
+                <ul>
+                    <li> Fixed bugs</li>
+                    <li> Added online and last seen</li>
+                    <li> Added Live Chat</li>
+                    <li>Minor Changes</li>
+                </ul>
+                <h1>
+                    What's
+                    New in 2.1</h1>
 
-    <ul>
-        <li>Added ability to play with your friend on a network</li>
-        <li>fix some bugs</li>
-        <li>Added new functionalities</li>
-    </ul>
+                <ul>
+                    <li>New and improved user interface.</li>
+                    <li>Fixed some bugs</li>
+                </ul>
 
-    <h1>
-        <a id="whats-new-in-12" class="anchor" href="#whats-new-in-12" aria-hidden="true"><span aria-hidden="true"
-                                                                                                class="octicon octicon-link"></span></a>Whats
-        New in 1.2</h1>
+                <h1>
+                    What's
+                    New in 2.0</h1>
 
-    <ul>
-        <li>Improved on the artificial intelligence of the computer</li>
-        <li>Added ability to play against the computer</li>
-    </ul>
+                <ul>
+                    <li>Added ability to play with your friend on a network</li>
+                    <li>fix some bugs</li>
+                    <li>Added new functionalities</li>
+                </ul>
 
-    <h1>
-        <a id="whats-new-in-10" class="anchor" href="#whats-new-in-10" aria-hidden="true"><span aria-hidden="true"
-                                                                                                class="octicon octicon-link"></span></a>Whats
-        New in 1.0</h1>
+                <h1>
+                    What's
+                    New in 1.2</h1>
 
-    <ul>
-        <li>Added ability to play with your friend.</li>
-        <li>First release of the game</li>
-    </ul>
+                <ul>
+                    <li>Improved on the artificial intelligence of the computer</li>
+                    <li>Added ability to play against the computer</li>
+                </ul>
 
-    <p>(c) 10th January 2017 Kofi Mokome</p>
+                <h1>
+                    What's
+                    New in 1.0</h1>
 
-    <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/kofimokome/tic-tac-toe">Tic-tac-toe</a> is maintained by <a
-                href="https://github.com/kofimokome">kofimokome</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a
-                href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a
-                href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-    </footer>
-
-</section>
-
+                <ul>
+                    <li>Added ability to play with your friend.</li>
+                    <li>First release of the game</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="footer">
+                <span class="fa fa-copyright"></span> <span id="copyright-date"></span>  <span class="fa fa-github"></span> <a href="https://github.com/kofimokome">Kofi Mokome</a> <span class="fa fa-facebook-square"></span>
+                <a href="https://www.facebook.com/kofipage">100% Kofi</a> <span class="fa fa-twitter"> <a href="https://www.twitter.com/MokomeKofi">@MokomeKofi</a></span>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
+<script>
+    var a = new Date();
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var day = days[a.getDay()];
+    document.getElementById('copyright-date').innerHTML =  month + " " + year;
+</script>
 </html>

@@ -15,4 +15,4 @@ if(!$result){
     echo "connection failed".mysqli_error($con);
     die();
 }
-header('Location: /Tic_Tac_Toe/online');
+header('Location: ../');

@@ -21,14 +21,26 @@ if(!$db){
     echo "Database Connection Failed";
     die();
 }
-//TIMESTAMP NOT NULL
-$query="create table if not exists players(id int not null primary key auto_increment, session_id int,name varchar(10),status int(1),last_seen TIMESTAMP)";
+
+//      --       Creating the users table        --
+
+$query="create table if not exists users (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT , first_name VARCHAR(10) NOT NULL , last_name VARCHAR(10) NOT NULL , username VARCHAR(10) NOT NULL ,  password VARCHAR(80) NOT NULL ,  phone INT(20) NULL ,  email VARCHAR(20) NULL ,   last_seen TIMESTAMP NOT NULL ,  picture INT(1) NULL)";
 $result=mysqli_query($con, $query);
 if(!$result){
     echo 'connection failed'.mysqli_error($con);
-    die();
+    die("Error creating users table");
 }
-$query="create table if not exists sessions(id int not null primary key auto_increment, name varchar(10),pass varchar(255),player int(1),active tinyint(1),moves int(1))";
+
+//      --      Creating the users table         --
+
+//TIMESTAMP NOT NULL
+$query="create table if not exists players(id int not null primary key auto_increment, session_id int,user_id INT(255) NOT NULL,status int(1),last_seen TIMESTAMP)";
+$result=mysqli_query($con, $query);
+if(!$result){
+    echo 'connection failed'.mysqli_error($con);
+    die("Error creating players table");
+}
+$query="create table if not exists sessions(id int not null primary key auto_increment, user_id INT NOT NULL,name varchar(10),pass varchar(255),player int(1),active tinyint(1),moves int(1))";
 $result=mysqli_query($con, $query);
 if(!$result){
     echo 'connection failed'.mysqli_error($con);
@@ -62,4 +74,6 @@ deleting a tble=> DROP TABLE tablename
 //  }
 //  $reg=1;
 //}
+$_SESSION['root_url']="/Tic_Tac_Toe/online";
+
 ?>
