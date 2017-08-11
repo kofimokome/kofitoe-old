@@ -1,139 +1,138 @@
 body {
     color: black;
-    width: 26.8cm;
     overflow: scroll;
     background-color: white;
 }
 
 .welcome{
-    padding:20px;
-    text-align: center;
-    background: #ccc;
+  padding:20px;
+  text-align: center;
+  background: #ccc;
 }
 .transit{
-    transition: 5s;
+  transition: 5s;
 }
 #player{
-    color: green;
+  color: green;
 }
 
 /*//styles from bootstrap*/
 .alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    text-align: center;
-    padding:20px;
-    display: none;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  text-align: center;
+  padding:20px;
+  display: none;
 }
 
 .alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-    text-align: center;
-    padding:20px;
-    display: none;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  text-align: center;
+  padding:20px;
+  display: none;
 }
 
 .alert-info {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-    text-align: center;
-    padding:20px;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  text-align: center;
+  padding:20px;
 }
 
 
 
 #board {
-    width: 450px;
-    border: 1px solid black;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: visible;
+  width: 450px;
+  border: 1px solid black;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
 }
 
 #board span {
-    display: block;
-    padding-bottom: 100%;
-    width: 424px;
-    margin: auto;
+  display: block;
+  padding-bottom: 100%;
+  width: 424px;
+  margin: auto;
 }
 
 #board,
 #board span {
-    position: relative;
+  position: relative;
 }
 
 #board::after,
 #board::before,
 #board span::after,
 #board span::before {
-    content: '';
-    position: absolute;
-    background: black;
+  content: '';
+  position: absolute;
+  background: black;
 }
 
 #board::after {
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
 }
 
 #board::before {
-    width: 1px;
-    left: 50%;
-    top: 0;
-    bottom: 0;
+  width: 1px;
+  left: 50%;
+  top: 0;
+  bottom: 0;
 }
 
 #board span::before,
 #board span::after {
-    height: 1px;
-    top: 50%;
-    left: -25%;
-    right: -25%;
-    background: red;
+  height: 1px;
+  top: 50%;
+  left: -25%;
+  right: -25%;
+  background: red;
 }
 
 #board span::before {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 #board span::after {
-    transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 #board input{
-    border-radius: 100px;
-    width:20px;
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
+  border-radius: 100px;
+  width:20px;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
 }
 .col1 {
-    margin-left: -10px;
+  margin-left: -10px;
 }
 
 .col2 {
-    margin-left: 215px;
+  margin-left: 215px;
 }
 
 .col3 {
-    margin-left: 439px;
+  margin-left: 439px;
 }
 
 .row1 {
-    margin-top: -10px;
+  margin-top: -10px;
 }
 
 .row2 {
-    margin-top: 215px;
+  margin-top: 215px;
 }
 
 .row3 {
-    margin-top: 439px;
+  margin-top: 439px;
 }

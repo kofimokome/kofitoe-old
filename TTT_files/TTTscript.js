@@ -81,7 +81,7 @@ function C_12(player) {
             }
             if (com == 1) {
                 info_msg = 'Genious Is Thinking';
-                infos.style.display = 'block';
+                //infos.style.display = 'block';
                 setTimeout('auto_play();', 1000);
             }
         }
@@ -123,7 +123,7 @@ function C_13(player) {
             }
             if (com == 1) {
                 info_msg = 'Genious Is Thinking';
-                infos.style.display = 'block';
+                //infos.style.display = 'block';
                 setTimeout('auto_play();', 1000);
             }
         }
@@ -164,7 +164,7 @@ function C_21(player) {
             }
             if (com == 1) {
                 info_msg = 'Genious Is Thinking';
-                infos.style.display = 'block';
+                //infos.style.display = 'block';
                 setTimeout('auto_play();', 1000);
             }
         }
@@ -2533,7 +2533,6 @@ function win(n) {
             event_msg = 'Player ' + n + '  Wins';
         events.style.display = 'block';
         smove = 7;
-        document.getElementById('score').innerHTML = "<?php echo 'hey';?>"; //not working
         sendRequest();
     }
 
