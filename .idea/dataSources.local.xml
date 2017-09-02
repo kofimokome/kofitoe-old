@@ -9,7 +9,9 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <resolve-scope>tic_tac_toe:*</resolve-scope>
+      <introspection-schemas>*:tic_tac_toe</introspection-schemas>
+      <resolve-scope>*:tic_tac_toe</resolve-scope>
+      <unqualified-resolve-schemas>*:tic_tac_toe</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

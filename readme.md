@@ -1,12 +1,16 @@
-# Tic Tac Toe , the javascript game
-# -- Version 4.2.0 Beta--
+# Kofi Toe v4.1.9
 
 ## Notice
-> The codes here are no longer supported <br>
-> There is a new version currently under development. Clone the staging branch to test it
+> This version is out of support but still maintained.<br>
+> Check the website below for the new version
 
-## What's new in 4.2
-- Configured Project With Node
-- Project is now faster
-- Improved UI
+## Website
+https://kofitictactoe.herokuapp.com/
+
+## What's new in 4.1.9
+- Improved on the (artificial) intelligence of GENIUS
+- Improved Interface
 - Discontinued Support for older versions
+
+## Contribute
+Please Clone the staging branch or feel free to fork the repository.
