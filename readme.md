@@ -5,7 +5,7 @@
 > Check the website below for the new version
 
 ## Website
-https://kofitictactoe.herokuapp.com/
+https://kofitoe.herokuapp.com/
 
 ## What's new in 4.1.9
 - Improved on the (artificial) intelligence of GENIUS
